@@ -4,8 +4,8 @@ import { heros as herosData } from '../data';
 import Hero from './Hero';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const HeroSlider = ({}) => {
-  const [heros, _] = useState(herosData);
+const HeroSlider = () => {
+  const [heros] = useState(herosData);
   const [index, setIndex] = useState(0);
 
   const nextHero = () => {
