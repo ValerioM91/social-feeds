@@ -5,6 +5,7 @@ const Head = ({ title, description }) => {
     <HeadProvider>
       <Title>{`${title || 'Autumn Fashion Fix'} | Autumn Fashion Fix`}</Title>
       <Meta name="description" content={description || 'Autumn Fashion Fix Event'} />
+      <Meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     </HeadProvider>
   );
 };
