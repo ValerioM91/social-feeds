@@ -26,7 +26,7 @@ export const SocialFeedProvider = ({ children }) => {
   const getFeed = async () => {
     dispatch({ type: GET_SOCIAL_FEED_START });
     try {
-      const response = await fetch('http://private-cc77e-aff.apiary-mock.com/posts');
+      const response = await fetch('https://private-cc77e-aff.apiary-mock.com/posts');
       const data = await response.json();
       dispatch({ type: GET_SOCIAL_FEED, payload: { data } });
     } catch (err) {
