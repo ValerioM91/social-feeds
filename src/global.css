@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #cf197d;
+  --primary-color: #802c4d;
+  --primary-color: hsl(336, 80%, 34%);
+  --grey-1: #3f3f3f;
+  --grey-2: #c8c8c8;
+  --bg-grey: #eee;
+  --black: #222;
+  --white: #fff;
+  --max-width: 1240px;
+  --transition: all 0.3s linear;
+  --border-radius: 1rem;
+  --font-family: 'Montserrat';
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--black);
+  line-height: 1.5;
+  font-size: 1.6rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a,
+a:visited {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
+h5,
+h6 {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+h2 {
+  font-size: 2.8rem;
+  color: var(--primary);
+}
+h3 {
+  font-size: 2.4rem;
+}
+h4 {
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1.4rem;
+}
+p {
+  color: var(--grey-1);
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 5.4rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  h3 {
+    font-size: 3.2rem;
+  }
+  h4 {
+    font-size: 2.4rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  body {
+    font-size: 1.6rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+/* section */
+.block {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .block {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+}
+
+.container {
+  padding: 0 2rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn {
+  text-transform: uppercase;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  display: inline-block;
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  border-color: transparent;
+  outline: none;
+}
+
+.btn.btn-small {
+  padding: 0.65rem 1.3rem;
+}
+
+.btn.btn-xl {
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+}
+
+.btn.btn-rounded {
+  border-radius: 5rem;
+}
+
+.btn.btn-white {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: var(--white);
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.underline {
+  position: relative;
+}
+
+.underline:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  height: 1px;
+  width: 0;
+  left: 50%;
+  right: 50%;
+  background: var(--primary-color);
+  transition: var(--transition);
+}
+
+.underline:hover:after {
+  left: 0;
+  right: 0;
+  width: 100%;
+}

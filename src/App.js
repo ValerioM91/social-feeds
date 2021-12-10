@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './global.css';
+import styled from 'styled-components';
+import Head from './components/Head';
+import Grid from './components/Grid';
+import Filters from './components/Filters';
+import HeroSlider from './components/HeroSlider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Head
+        title="Social Feed"
+        description="Latest Instagram & Twitter Posts for the upcoming event"
+      />
+      <Wrapper className="App">
+        <HeroSlider />
+        <Filters />
+        <Grid />
+      </Wrapper>
+    </>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  margin-bottom: 15rem;
+`;
