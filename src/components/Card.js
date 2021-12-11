@@ -13,6 +13,9 @@ const Card = ({ post }) => {
   const image = random_image?.image;
   const thumb = random_image?.thumb;
 
+  const data = new Date(date).getTime();
+  const now = new Date().getTime();
+
   return (
     <Wrapper className={`card${!image ? ' padding-top' : ''}`}>
       <CardIcon type={type} />
@@ -33,6 +36,9 @@ const Card = ({ post }) => {
         <InstagramPost post={post} />
       ) : null}
       <p className="date">{relativeTimestamps(date)}</p>
+      <p className="date">Now: {now}</p>
+      <p className="date">Date: {data}</p>
+      <p className="date">Diff: {now - data}</p>
     </Wrapper>
   );
 };
