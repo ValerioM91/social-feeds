@@ -131,9 +131,8 @@ const Wrapper = styled.div`
     border: none;
     outline: none;
     background-color: var(--bg-grey);
-    /* width: 225px; */
     width: 100%;
-    font-size: 14px;
+    font-size: 1.4rem
     color: var(--black);
   }
 
@@ -145,7 +144,7 @@ const Wrapper = styled.div`
     }
 
     select {
-      width: 250px;
+      width: 25rem;
     }
 
     .text-input-wrap {
@@ -167,7 +166,7 @@ const Wrapper = styled.div`
     }
 
     .text-input {
-      width: 250px;
+      width: 25rem;
     }
   }
 `;

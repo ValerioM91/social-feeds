@@ -7,6 +7,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 const HeroSlider = () => {
   const [heros] = useState(herosData);
   const [index, setIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
 
   const nextHero = () => {
     if (index === heros.length - 1) return setIndex(0);
@@ -18,12 +19,19 @@ const HeroSlider = () => {
     return setIndex(index - 1);
   };
 
-  const assignIndex = (i) => {
-    setIndex(i);
+  const touchStartHandler = (e) => {
+    return setTouchStart(e.touches[0].clientX);
+  };
+
+  const touchMoveHandler = (e) => {
+    const position = e.changedTouches[0].clientX;
+
+    if (position - touchStart > 150) return previousHero();
+    if (position - touchStart < -150) return nextHero();
   };
 
   return (
-    <Wrapper>
+    <Wrapper onTouchStart={(e) => touchStartHandler(e)} onTouchEnd={(e) => touchMoveHandler(e)}>
       {heros.map((hero, heroIndex) => {
         let position = 'next';
         if (heroIndex === index) position = 'center';
@@ -37,7 +45,7 @@ const HeroSlider = () => {
           <span
             key={heroIndex}
             className={`dot${index === heroIndex ? ' active' : ''}`}
-            onClick={() => assignIndex(heroIndex)}
+            onClick={() => setIndex(heroIndex)}
           ></span>
         ))}
       </div>

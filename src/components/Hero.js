@@ -28,11 +28,11 @@ const Wrapper = styled.div`
   align-items: center;
 
   &.previous {
-    transform: translateX(-100%);
+    left: -100%;
   }
 
   &.next {
-    transform: translateX(100%);
+    left: 100%;
   }
 
   .heading {
