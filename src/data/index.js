@@ -14,4 +14,9 @@ export const heros = [
     heading: 'Duis aute irure dolor in reprehenderit in voluptate velit.',
     image: './images/hero-3.jpg',
   },
+  {
+    id: 4,
+    heading: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+    image: './images/hero-4.jpg',
+  },
 ];
