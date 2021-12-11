@@ -1,5 +1,7 @@
+import formatDate from './formatDate';
+
 const relativeTimestamps = (date) => {
-  const postDateTime = new Date(date).getTime();
+  const postDateTime = formatDate(date);
   const now = new Date().getTime();
 
   const relativeTime = (now - postDateTime) / 60000; // minutes

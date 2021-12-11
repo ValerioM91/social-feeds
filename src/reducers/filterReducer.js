@@ -6,6 +6,7 @@ import {
   UPDATE_SORT,
   SORT_POSTS,
 } from '../actions';
+import formatDate from '../utils/formatDate';
 
 const reducer = (state, action) => {
   if (action.type === GET_SOCIAL_FEED) {
@@ -33,13 +34,13 @@ const reducer = (state, action) => {
     let tempFeed = [...filteredFeed];
     if (sort === 'latest') {
       tempFeed = filteredFeed.sort(
-        (a, b) => new Date(b.item_published).getTime() - new Date(a.item_published).getTime()
+        (a, b) => formatDate(b.item_published) - formatDate(a.item_published)
       );
       return { ...state, filteredFeed: tempFeed };
     }
     if (sort === 'oldest') {
       tempFeed = filteredFeed.sort(
-        (a, b) => new Date(a.item_published) - new Date(b.item_published)
+        (a, b) => formatDate(a.item_published) - formatDate(b.item_published)
       );
       return { ...state, filteredFeed: tempFeed };
     }
