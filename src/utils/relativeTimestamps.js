@@ -1,5 +1,5 @@
 const relativeTimestamps = (date) => {
-  const postDateTime = Date.parse(date);
+  const postDateTime = new Date(date).getTime();
   const now = new Date().getTime();
 
   const relativeTime = (now - postDateTime) / 60000; // minutes
