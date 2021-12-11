@@ -12,7 +12,7 @@ const breakpointColumnsObj = {
 };
 
 const Grid = () => {
-  const { socialFeedLoading, loadMoreHandler } = useSocialFeedContext();
+  const { socialFeedLoading, loadMoreHandler, socialFeedError } = useSocialFeedContext();
   const { filteredFeed: posts } = useFilterContext();
 
   if (socialFeedLoading && posts.length === 0)
@@ -22,8 +22,15 @@ const Grid = () => {
       </div>
     );
 
+  if (socialFeedError)
+    return (
+      <Wrapper className="container">
+        <h4 className="error">There was an error loading the posts.</h4>
+      </Wrapper>
+    );
+
   return (
-    <Wrapper className="">
+    <Wrapper>
       <div className="container">
         <Masonry
           breakpointCols={breakpointColumnsObj}
@@ -87,9 +94,16 @@ const Wrapper = styled.div`
     text-align: center;
   }
 
+  .btn {
+    transition: 0s filter, 0s -webkit-filter;
+  }
+
   .btn[disabled] {
-    transition: all 0;
     filter: brightness(0.7);
+  }
+
+  .error {
+    text-align: center;
   }
 
   @media screen and (min-width: 900px) {
