@@ -1,6 +1,5 @@
 import { useEffect, createContext, useContext, useReducer } from 'react';
 import reducer from '../reducers/socialsReducer';
-import nextId from 'react-id-generator';
 import {
   GET_SOCIAL_FEED,
   GET_SOCIAL_FEED_START,
@@ -41,8 +40,7 @@ export const SocialFeedProvider = ({ children }) => {
         `https://api.unsplash.com/photos/random/?sig=${i}&query=fashion&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
       );
       const data = await response.json();
-      const newId = nextId();
-      dispatch({ type: GET_RANDOM_IMAGE, payload: { postId, data, newId } });
+      dispatch({ type: GET_RANDOM_IMAGE, payload: { postId, data } });
     } catch (err) {
       console.error(err);
     }

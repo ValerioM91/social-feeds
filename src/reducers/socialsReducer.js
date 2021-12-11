@@ -5,6 +5,7 @@ import {
   LOAD_MORE,
   GET_RANDOM_IMAGE,
 } from '../actions';
+import nextId from 'react-id-generator';
 
 const socialsReducer = (state, action) => {
   if (action.type === GET_SOCIAL_FEED_START) {
@@ -12,7 +13,10 @@ const socialsReducer = (state, action) => {
   }
 
   if (action.type === GET_SOCIAL_FEED) {
-    const newSocialFeed = action.payload.data.items;
+    const newSocialFeed = action.payload.data.items.map((post) => {
+      post.item_id = nextId();
+      return post;
+    });
     const oldSocialFeed = state.socialFeed;
     const types = action.payload.data.items.map((item) => item.service_slug);
     const typesSet = new Set([...state.feedTypes, ...types]);
@@ -38,7 +42,6 @@ const socialsReducer = (state, action) => {
       image: action.payload.data.urls.regular,
       thumb: action.payload.data.urls.thumb,
     };
-    post.item_id = action.payload.newId;
     feed[postIndex] = post;
 
     return {
