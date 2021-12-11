@@ -82,6 +82,7 @@ const Wrapper = styled.div`
     outline: none;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+    background: var(--white);
     padding: 1.3rem 2.5rem;
     border-radius: 2.5rem;
     font-size: 1.4rem;
