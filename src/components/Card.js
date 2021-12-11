@@ -44,12 +44,23 @@ const Wrapper = styled.div`
   border: 1px solid var(--grey-2);
   border-radius: var(--border-radius);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   &.padding-top {
     padding-top: 5.5rem;
+  }
+
+  .lazy-load-image-background.blur {
+    filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    &.lazy-load-image-loaded {
+      filter: blur(0);
+      -webkit-backdrop-filter: blur(0);
+    }
+  }
+
+  span {
+    width: 100%;
   }
 
   .image {
