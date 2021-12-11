@@ -26,8 +26,8 @@ const HeroSlider = () => {
   const touchMoveHandler = (e) => {
     const position = e.changedTouches[0].clientX;
 
-    if (position - touchStart > 150) return previousHero();
-    if (position - touchStart < -150) return nextHero();
+    if (position - touchStart > 100) return previousHero();
+    if (position - touchStart < -100) return nextHero();
   };
 
   return (
