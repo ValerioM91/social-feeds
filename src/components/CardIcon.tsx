@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { FaInstagram, FaTwitter } from 'react-icons/fa';
 
-const CardIcon = ({ type }) => {
+interface Props {
+  type: string;
+}
+
+const CardIcon: React.FC<Props> = ({ type }) => {
   return (
     <Wrapper className={type}>
       {type === 'instagram' ? (

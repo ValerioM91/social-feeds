@@ -1,4 +1,9 @@
-const ManualPost = ({ post }) => {
+import PostModel from '../models/Post.model';
+
+interface Props {
+  post: PostModel;
+}
+const ManualPost: React.FC<Props> = ({ post }) => {
   const {
     item_data: { link, link_text, text },
   } = post;

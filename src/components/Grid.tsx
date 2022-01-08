@@ -4,6 +4,7 @@ import Spinner from './Spinner';
 import useSocialFeedContext from '../context/SocialFeed';
 import useFilterContext from '../context/FilterContext';
 import Card from './Card';
+import PostModel from '../models/Post.model';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -37,7 +38,7 @@ const Grid = () => {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {posts.map((post) => {
+          {posts.map((post: PostModel) => {
             return <Card key={post.item_id} post={post} />;
           })}
         </Masonry>

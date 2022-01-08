@@ -21,7 +21,7 @@ const Filters = () => {
           </div>
 
           <div className="button-container">
-            {feedTypes.map((type, i) => (
+            {feedTypes.map((type: string, i: number) => (
               <button
                 key={i}
                 className={`btn btn-rounded${type === filters.type ? ' active' : ' btn-white'}`}
@@ -132,7 +132,7 @@ const Wrapper = styled.div`
     outline: none;
     background-color: var(--bg-grey);
     width: 100%;
-    font-size: 1.4rem
+    font-size: 1.4rem;
     color: var(--black);
   }
 

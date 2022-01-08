@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Hero = ({ heading, image, position }) => {
+interface Props {
+  className?: string;
+  heading?: string;
+  image?: string;
+  position?: string;
+}
+
+const Hero: React.FC<Props> = ({ heading, image, position }) => {
   return (
     <Wrapper className={position}>
       <figure className="image">

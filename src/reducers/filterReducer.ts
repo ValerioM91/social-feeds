@@ -1,22 +1,16 @@
-import {
-  GET_SOCIAL_FEED,
-  UPDATE_FILTERS,
-  CLEAR_TEXT,
-  FILTER_FEED,
-  UPDATE_SORT,
-  SORT_POSTS,
-} from '../actions';
+import Actions from '../actions';
 import formatDate from '../utils/formatDate';
+import State from '../models/Filter-context.model';
 
-const reducer = (state, action) => {
-  if (action.type === GET_SOCIAL_FEED) {
+const reducer = (state: State, action: { type: Actions; payload?: any }) => {
+  if (action.type === Actions.GET_SOCIAL_FEED) {
     return {
       ...state,
       socialFeed: action.payload,
     };
   }
 
-  if (action.type === UPDATE_FILTERS) {
+  if (action.type === Actions.UPDATE_FILTERS) {
     const { name, value } = action.payload;
     return {
       ...state,
@@ -24,12 +18,12 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === UPDATE_SORT) {
+  if (action.type === Actions.UPDATE_SORT) {
     const value = action.payload;
     return { ...state, sort: value };
   }
 
-  if (action.type === SORT_POSTS) {
+  if (action.type === Actions.SORT_POSTS) {
     const { sort, filteredFeed } = state;
     let tempFeed = [...filteredFeed];
     if (sort === 'latest') {
@@ -57,7 +51,7 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === FILTER_FEED) {
+  if (action.type === Actions.FILTER_FEED) {
     const {
       socialFeed,
       filters: { text, type },
@@ -70,18 +64,26 @@ const reducer = (state, action) => {
         const input = text.toLowerCase();
         const name = post.item_name.toLowerCase();
 
-        let postText = '';
+        let postText: string = '';
         let postAuthor = '';
-        if (post.service_slug === 'manual') {
+        if (post.service_slug === 'manual' && post.item_data.text) {
           postText = post.item_data.text;
         }
 
-        if (post.service_slug === 'twitter') {
+        if (
+          post.service_slug === 'twitter' &&
+          post.item_data.tweet &&
+          post.item_data.user?.username
+        ) {
           postText = post.item_data.tweet;
           postAuthor = post.item_data.user.username;
         }
 
-        if (post.service_slug === 'instagram') {
+        if (
+          post.service_slug === 'instagram' &&
+          post.item_data.caption &&
+          post.item_data.user?.username
+        ) {
           postText = post.item_data.caption;
           postAuthor = post.item_data.user.username;
         }
@@ -101,7 +103,7 @@ const reducer = (state, action) => {
     return { ...state, filteredFeed: tempFilteredFeed };
   }
 
-  if (action.type === CLEAR_TEXT) {
+  if (action.type === Actions.CLEAR_TEXT) {
     const {
       filters: { type },
     } = state;

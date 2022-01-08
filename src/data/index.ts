@@ -1,4 +1,5 @@
-export const heros = [
+import { HeroModel } from '../models/Hero.model';
+export const heros: HeroModel[] = [
   {
     id: 1,
     heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

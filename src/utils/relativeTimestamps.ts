@@ -1,6 +1,6 @@
 import formatDate from './formatDate';
 
-const relativeTimestamps = (date) => {
+const relativeTimestamps = (date: string): string => {
   const postDateTime = formatDate(date);
   const now = new Date().getTime();
 

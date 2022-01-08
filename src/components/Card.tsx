@@ -6,8 +6,13 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import ManualPost from './ManualPost';
 import TwitterPost from './TwitterPost';
 import InstagramPost from './InstagramPost';
+import PostModel from '../models/Post.model';
 
-const Card = ({ post }) => {
+interface PostType {
+  post: PostModel;
+}
+
+const Card: React.FC<PostType> = ({ post }) => {
   const { service_slug: type, item_published: date, item_name: title, random_image } = post;
 
   const image = random_image?.image;
@@ -52,10 +57,12 @@ const Wrapper = styled.div`
   .lazy-load-image-background.blur {
     filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
 
     &.lazy-load-image-loaded {
       filter: blur(0);
       -webkit-backdrop-filter: blur(0);
+      backdrop-filter: blur(0px);
     }
   }
 
