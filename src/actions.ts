@@ -23,5 +23,3 @@ enum Actions {
 }
 
 export default Actions;
-
-console.log(Actions.GET_RANDOM_IMAGE);
