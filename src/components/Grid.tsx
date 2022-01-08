@@ -1,10 +1,11 @@
+import { useSelector, useDispatch } from 'react-redux';
 import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
 import Spinner from './Spinner';
-import useSocialFeedContext from '../context/SocialFeed';
-import useFilterContext from '../context/FilterContext';
 import Card from './Card';
 import PostModel from '../models/Post.model';
+import { loadMoreHandler } from '../store/socialActions';
+import { StateModel } from '../store';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -13,10 +14,13 @@ const breakpointColumnsObj = {
 };
 
 const Grid = () => {
-  const { socialFeedLoading, loadMoreHandler, socialFeedError } = useSocialFeedContext();
-  const { filteredFeed: posts } = useFilterContext();
+  const dispatch = useDispatch();
 
-  if (socialFeedLoading && posts.length === 0)
+  const socialFeedLoading = useSelector((state: StateModel) => state.socials.socialFeedLoading);
+  const socialFeedError = useSelector((state: StateModel) => state.socials.socialFeedError);
+  const filteredFeed = useSelector((state: StateModel) => state.filteredSocials.filteredFeed);
+
+  if (socialFeedLoading && filteredFeed.length === 0)
     return (
       <div className="container">
         <Spinner />
@@ -38,7 +42,7 @@ const Grid = () => {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {posts.map((post: PostModel) => {
+          {filteredFeed.map((post: PostModel) => {
             return <Card key={post.item_id} post={post} />;
           })}
         </Masonry>
@@ -46,7 +50,7 @@ const Grid = () => {
         <div className="button-container">
           <button
             className="btn btn-xl btn-rounded"
-            onClick={loadMoreHandler}
+            onClick={() => dispatch(loadMoreHandler())}
             disabled={socialFeedLoading}
           >
             Load More

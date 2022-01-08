@@ -1,18 +1,20 @@
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import useSocialFeedContext from '../context/SocialFeed';
-import useFilterContext from '../context/FilterContext';
 import { RiArrowDownSLine, RiCloseCircleFill } from 'react-icons/ri';
+import { clearText, updateFilters, updateSort } from '../store/filtersActions';
+import { StateModel } from '../store';
 
 const Filters = () => {
-  const { feedTypes } = useSocialFeedContext();
-  const { updateFilters, updateSort, filters, clearText } = useFilterContext();
+  const dispatch = useDispatch();
+  const filters = useSelector((state: StateModel) => state.filteredSocials.filters);
+  const feedTypes = useSelector((state: StateModel) => state.socials.feedTypes);
 
   return (
     <Wrapper className="block">
       <div className="container">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="select-wrap">
-            <select name="sort" onChange={updateSort}>
+            <select name="sort" onChange={(e: any) => dispatch(updateSort(e))}>
               <option value="">Select an option</option>
               <option value="latest">Most Recent</option>
               <option value="oldest">Least Recent</option>
@@ -27,7 +29,7 @@ const Filters = () => {
                 className={`btn btn-rounded${type === filters.type ? ' active' : ' btn-white'}`}
                 name="type"
                 value={type}
-                onClick={updateFilters}
+                onClick={(e: any) => dispatch(updateFilters(e))}
               >
                 {type === 'manual' ? 'AFF' : type}
               </button>
@@ -40,9 +42,9 @@ const Filters = () => {
               name="text"
               placeholder="Search..."
               value={filters.text}
-              onChange={updateFilters}
+              onChange={(e: any) => dispatch(updateFilters(e))}
             />
-            {filters.text && <RiCloseCircleFill onClick={clearText} />}
+            {filters.text && <RiCloseCircleFill onClick={() => dispatch(clearText())} />}
           </div>
         </form>
       </div>
