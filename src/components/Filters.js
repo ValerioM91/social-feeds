@@ -1,16 +1,16 @@
-import styled from 'styled-components';
-import useSocialFeedContext from '../context/SocialFeed';
-import useFilterContext from '../context/FilterContext';
-import { RiArrowDownSLine, RiCloseCircleFill } from 'react-icons/ri';
+import styled from 'styled-components'
+import useSocialFeedContext from '../context/SocialFeed'
+import useFilterContext from '../context/FilterContext'
+import { RiArrowDownSLine, RiCloseCircleFill } from 'react-icons/ri'
 
 const Filters = () => {
-  const { feedTypes } = useSocialFeedContext();
-  const { updateFilters, updateSort, filters, clearText } = useFilterContext();
+  const { feedTypes } = useSocialFeedContext()
+  const { updateFilters, updateSort, filters, clearText } = useFilterContext()
 
   return (
     <Wrapper className="block">
       <div className="container">
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={e => e.preventDefault()}>
           <div className="select-wrap">
             <select name="sort" onChange={updateSort}>
               <option value="">Select an option</option>
@@ -47,10 +47,10 @@ const Filters = () => {
         </form>
       </div>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Filters;
+export default Filters
 
 const Wrapper = styled.div`
   form {
@@ -169,4 +169,4 @@ const Wrapper = styled.div`
       width: 25rem;
     }
   }
-`;
+`

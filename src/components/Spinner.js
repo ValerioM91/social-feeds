@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Spinner = () => {
   return (
@@ -10,10 +10,10 @@ const Spinner = () => {
       <div></div>
       <div></div>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner
 
 const Wrapper = styled.div`
   width: 4rem;
@@ -100,4 +100,4 @@ const Wrapper = styled.div`
       transform: scale(1);
     }
   }
-`;
+`

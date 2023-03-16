@@ -1,4 +1,4 @@
-import { HeadProvider, Title, Meta } from 'react-head';
+import { HeadProvider, Title, Meta } from 'react-head'
 
 const Head = ({ title, description }) => {
   return (
@@ -8,7 +8,7 @@ const Head = ({ title, description }) => {
       <Meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       <Meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     </HeadProvider>
-  );
-};
+  )
+}
 
-export default Head;
+export default Head

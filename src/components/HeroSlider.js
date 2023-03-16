@@ -1,44 +1,44 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { heros as herosData } from '../data';
-import Hero from './Hero';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useState } from 'react'
+import styled from 'styled-components'
+import { heros as herosData } from '../data'
+import Hero from './Hero'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 const HeroSlider = () => {
-  const [heros] = useState(herosData);
-  const [index, setIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
+  const [heros] = useState(herosData)
+  const [index, setIndex] = useState(0)
+  const [touchStart, setTouchStart] = useState(0)
 
   const nextHero = () => {
-    if (index === heros.length - 1) return setIndex(0);
-    return setIndex(index + 1);
-  };
+    if (index === heros.length - 1) return setIndex(0)
+    return setIndex(index + 1)
+  }
 
   const previousHero = () => {
-    if (index === 0) return setIndex(heros.length - 1);
-    return setIndex(index - 1);
-  };
+    if (index === 0) return setIndex(heros.length - 1)
+    return setIndex(index - 1)
+  }
 
-  const touchStartHandler = (e) => {
-    return setTouchStart(e.touches[0].clientX);
-  };
+  const touchStartHandler = e => {
+    return setTouchStart(e.touches[0].clientX)
+  }
 
-  const touchMoveHandler = (e) => {
-    const position = e.changedTouches[0].clientX;
+  const touchMoveHandler = e => {
+    const position = e.changedTouches[0].clientX
 
-    if (position - touchStart > 100) return previousHero();
-    if (position - touchStart < -100) return nextHero();
-  };
+    if (position - touchStart > 100) return previousHero()
+    if (position - touchStart < -100) return nextHero()
+  }
 
   return (
-    <Wrapper onTouchStart={(e) => touchStartHandler(e)} onTouchEnd={(e) => touchMoveHandler(e)}>
+    <Wrapper onTouchStart={e => touchStartHandler(e)} onTouchEnd={e => touchMoveHandler(e)}>
       {heros.map((hero, heroIndex) => {
-        let position = 'next';
-        if (heroIndex === index) position = 'center';
+        let position = 'next'
+        if (heroIndex === index) position = 'center'
         if (heroIndex === index - 1 || (heroIndex === 0 && index === heros.length - 1))
-          position = 'previous';
+          position = 'previous'
 
-        return <Hero className="hero" key={hero.id} {...hero} position={position} />;
+        return <Hero className="hero" key={hero.id} {...hero} position={position} />
       })}
       <div className="dots">
         {heros.map((_, heroIndex) => (
@@ -56,10 +56,10 @@ const HeroSlider = () => {
         <IoIosArrowForward />
       </button>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default HeroSlider;
+export default HeroSlider
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -152,4 +152,4 @@ const Wrapper = styled.div`
       padding: 1rem;
     }
   }
-`;
+`

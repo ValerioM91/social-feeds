@@ -1,33 +1,33 @@
-import Masonry from 'react-masonry-css';
-import styled from 'styled-components';
-import Spinner from './Spinner';
-import useSocialFeedContext from '../context/SocialFeed';
-import useFilterContext from '../context/FilterContext';
-import Card from './Card';
+import Masonry from 'react-masonry-css'
+import styled from 'styled-components'
+import Spinner from './Spinner'
+import useSocialFeedContext from '../context/SocialFeed'
+import useFilterContext from '../context/FilterContext'
+import Card from './Card'
 
 const breakpointColumnsObj = {
   default: 3,
   900: 2,
   600: 1,
-};
+}
 
 const Grid = () => {
-  const { socialFeedLoading, loadMoreHandler, socialFeedError } = useSocialFeedContext();
-  const { filteredFeed: posts } = useFilterContext();
+  const { socialFeedLoading, loadMoreHandler, socialFeedError } = useSocialFeedContext()
+  const { filteredFeed: posts } = useFilterContext()
 
   if (socialFeedLoading && posts.length === 0)
     return (
       <div className="container">
         <Spinner />
       </div>
-    );
+    )
 
   if (socialFeedError)
     return (
       <Wrapper className="container">
         <h4 className="error">There was an error loading the posts.</h4>
       </Wrapper>
-    );
+    )
 
   return (
     <Wrapper>
@@ -37,8 +37,8 @@ const Grid = () => {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {posts.map((post) => {
-            return <Card key={post.item_id} post={post} />;
+          {posts.map(post => {
+            return <Card key={post.item_id} post={post} />
           })}
         </Masonry>
 
@@ -55,9 +55,9 @@ const Grid = () => {
         </div>
       </div>
     </Wrapper>
-  );
-};
-export default Grid;
+  )
+}
+export default Grid
 
 const Wrapper = styled.div`
   margin-top: 5rem;
@@ -118,4 +118,4 @@ const Wrapper = styled.div`
       margin-bottom: 4rem;
     }
   }
-`;
+`

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FaInstagram, FaTwitter } from 'react-icons/fa';
+import styled from 'styled-components'
+import { FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const CardIcon = ({ type }) => {
   return (
@@ -12,10 +12,10 @@ const CardIcon = ({ type }) => {
         <span>AFF</span>
       )}
     </Wrapper>
-  );
-};
+  )
+}
 
-export default CardIcon;
+export default CardIcon
 
 const Wrapper = styled.div`
   position: absolute;
@@ -57,4 +57,4 @@ const Wrapper = styled.div`
       ),
       linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
   }
-`;
+`

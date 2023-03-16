@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import parseInstagramPost from '../utils/parseInstagramPost';
+import styled from 'styled-components'
+import parseInstagramPost from '../utils/parseInstagramPost'
 
 const InstagramPost = ({ post }) => {
   const {
@@ -8,7 +8,7 @@ const InstagramPost = ({ post }) => {
       link,
       user: { username },
     },
-  } = post;
+  } = post
 
   return (
     <Wrapper>
@@ -17,14 +17,14 @@ const InstagramPost = ({ post }) => {
       </a>
       <p>{parseInstagramPost(caption)}</p>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default InstagramPost;
+export default InstagramPost
 
 const Wrapper = styled.div`
   .link {
     color: var(--black);
     text-decoration: none;
   }
-`;
+`

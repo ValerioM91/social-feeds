@@ -19,4 +19,4 @@ export const heros = [
     heading: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
     image: './images/hero-4.jpg',
   },
-];
+]

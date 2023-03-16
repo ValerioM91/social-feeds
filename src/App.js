@@ -1,9 +1,9 @@
-import './global.css';
-import styled from 'styled-components';
-import Head from './components/Head';
-import Grid from './components/Grid';
-import Filters from './components/Filters';
-import HeroSlider from './components/HeroSlider';
+import './global.css'
+import styled from 'styled-components'
+import Head from './components/Head'
+import Grid from './components/Grid'
+import Filters from './components/Filters'
+import HeroSlider from './components/HeroSlider'
 
 function App() {
   return (
@@ -18,11 +18,11 @@ function App() {
         <Grid />
       </Wrapper>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
 
 const Wrapper = styled.div`
   margin-bottom: 15rem;
-`;
+`

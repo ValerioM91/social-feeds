@@ -1,7 +1,7 @@
 const ManualPost = ({ post }) => {
   const {
     item_data: { link, link_text, text },
-  } = post;
+  } = post
 
   return (
     <div>
@@ -14,7 +14,7 @@ const ManualPost = ({ post }) => {
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ManualPost;
+export default ManualPost

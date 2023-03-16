@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Hero = ({ heading, image, position }) => {
   return (
@@ -11,10 +11,10 @@ const Hero = ({ heading, image, position }) => {
         <h1 className="heading">{heading}</h1>
       </div>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
 
 const Wrapper = styled.div`
   position: absolute;
@@ -70,4 +70,4 @@ const Wrapper = styled.div`
       width: calc(100% - 10rem);
     }
   }
-`;
+`

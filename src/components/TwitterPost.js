@@ -1,4 +1,4 @@
-import parseTweet from '../utils/parseTweet';
+import parseTweet from '../utils/parseTweet'
 
 const TwitterPost = ({ post }) => {
   const {
@@ -6,13 +6,13 @@ const TwitterPost = ({ post }) => {
       tweet,
       user: { username },
     },
-  } = post;
+  } = post
   return (
     <div>
       <h4>{username}</h4>
       <p>{parseTweet(tweet)}</p>
     </div>
-  );
-};
+  )
+}
 
-export default TwitterPost;
+export default TwitterPost

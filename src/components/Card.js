@@ -1,17 +1,17 @@
-import styled from 'styled-components';
-import CardIcon from './CardIcon';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import relativeTimestamps from '../utils/relativeTimestamps';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import ManualPost from './ManualPost';
-import TwitterPost from './TwitterPost';
-import InstagramPost from './InstagramPost';
+import styled from 'styled-components'
+import CardIcon from './CardIcon'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import relativeTimestamps from '../utils/relativeTimestamps'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+import ManualPost from './ManualPost'
+import TwitterPost from './TwitterPost'
+import InstagramPost from './InstagramPost'
 
 const Card = ({ post }) => {
-  const { service_slug: type, item_published: date, item_name: title, random_image } = post;
+  const { service_slug: type, item_published: date, item_name: title, random_image } = post
 
-  const image = random_image?.image;
-  const thumb = random_image?.thumb;
+  const image = random_image?.image
+  const thumb = random_image?.thumb
 
   return (
     <Wrapper className={`card${!image ? ' padding-top' : ''}`}>
@@ -34,10 +34,10 @@ const Card = ({ post }) => {
       ) : null}
       <p className="date">{relativeTimestamps(date)}</p>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
 
 const Wrapper = styled.div`
   padding: 2.5rem;
@@ -80,4 +80,4 @@ const Wrapper = styled.div`
 
   @media screen and (min-width: 900px) {
   }
-`;
+`
